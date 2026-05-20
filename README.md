@@ -32,3 +32,11 @@ ln -sf $(pwd)/nvim ~/.config/nvim
 ln -sf $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ```
 
+### tmux plugins
+
+Install [TPM](https://github.com/tmux-plugins/tpm), then press `prefix + I` inside tmux to install the declared plugins:
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
