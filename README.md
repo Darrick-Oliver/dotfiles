@@ -10,36 +10,25 @@
 | [Neovim](nvim/) | Editor (LazyVim) | `~/.config/nvim/` |
 | [tmux](tmux/) | Terminal multiplexer | `~/.tmux.conf` |
 
-## Setup
+## Installation
 
-### AeroSpace
+Clone and symlink:
 
 ```sh
+git clone https://github.com/Darrick-Oliver/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+```
+
+Then create symlinks for whichever configs you need:
+
+```sh
+# macOS
 ln -sf $(pwd)/aerospace/aerospace.toml ~/.aerospace.toml
-```
-
-### Karabiner
-
-```sh
 ln -sf $(pwd)/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-```
-
-### Ghostty
-
-```sh
 ln -sf $(pwd)/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
-```
 
-### Neovim
-
-```sh
+# Shared
 ln -sf $(pwd)/nvim ~/.config/nvim
-```
-
-### tmux
-
-```sh
 ln -sf $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ```
-
 
