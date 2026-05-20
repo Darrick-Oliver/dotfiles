@@ -3,3 +3,5 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set("n", "<leader>j", "<C-f>", { desc = "Page down" })
+vim.keymap.set("n", "<leader>k", "<C-b>", { desc = "Page up" })
