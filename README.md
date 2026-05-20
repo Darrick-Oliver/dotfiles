@@ -7,6 +7,8 @@
 | [AeroSpace](aerospace/) | Tiling window manager | `~/.aerospace.toml` |
 | [Karabiner](karabiner/) | Keyboard remapping | `~/.config/karabiner/karabiner.json` |
 | [Ghostty](ghostty/) | Terminal emulator | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
+| [Neovim](nvim/) | Editor (LazyVim) | `~/.config/nvim/` |
+| [tmux](tmux/) | Terminal multiplexer | `~/.tmux.conf` |
 
 ## Setup
 
@@ -27,4 +29,17 @@ ln -sf $(pwd)/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ```sh
 ln -sf $(pwd)/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 ```
+
+### Neovim
+
+```sh
+ln -sf $(pwd)/nvim ~/.config/nvim
+```
+
+### tmux
+
+```sh
+ln -sf $(pwd)/tmux/.tmux.conf ~/.tmux.conf
+```
+
 
