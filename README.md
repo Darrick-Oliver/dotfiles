@@ -8,6 +8,7 @@
 | [Karabiner](karabiner/) | Keyboard remapping | `~/.config/karabiner/karabiner.json` |
 | [Ghostty](ghostty/) | Terminal emulator | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
 | [Neovim](nvim/) | Editor (LazyVim) | `~/.config/nvim/` |
+| [Claude Code](claude/) | CLI assistant settings | `~/.claude/settings.local.json` |
 | [tmux](tmux/) | Terminal multiplexer | `~/.tmux.conf` |
 
 ## Installation
@@ -28,6 +29,7 @@ ln -sf $(pwd)/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sf $(pwd)/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 
 # Shared
+ln -sf $(pwd)/claude/settings.local.json ~/.claude/settings.local.json
 ln -sf $(pwd)/nvim ~/.config/nvim
 ln -sf $(pwd)/tmux/.tmux.conf ~/.tmux.conf
 ```
