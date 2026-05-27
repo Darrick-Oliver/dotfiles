@@ -30,7 +30,9 @@
       "Bash(git branch*)",
       "Bash(git show*)",
       "Bash(git add*)",
-      "Bash(git checkout*)"
+      "Bash(git checkout*)",
+      "Bash(rtk *)",
+      "WebSearch"
     ],
     "deny": [
       "Bash(git push --force*)",
