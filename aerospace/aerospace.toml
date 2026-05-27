@@ -118,21 +118,11 @@ on-mode-changed = []
     ctrl-alt-slash = 'layout tiles horizontal vertical'
     ctrl-alt-comma = 'layout accordion horizontal vertical'
 
-    # Toggle split orientation for focused window's container (like Omarchy Super+J)
-    ctrl-alt-j = '''exec-and-forget bash -c '
-      layout=$(aerospace list-windows --focused --format "%{window-parent-container-layout}")
-      if [ "$layout" = "h_tiles" ]; then
-        aerospace layout v_tiles
-      else
-        aerospace layout h_tiles
-      fi
-    ' '''
-
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    ctrl-alt-left = 'focus left'
-    ctrl-alt-down = 'focus down'
-    ctrl-alt-up = 'focus up'
-    ctrl-alt-right = 'focus right'
+    ctrl-alt-h = 'focus left'
+    ctrl-alt-j = 'focus down'
+    ctrl-alt-k = 'focus up'
+    ctrl-alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     ctrl-alt-shift-left = 'move left'
