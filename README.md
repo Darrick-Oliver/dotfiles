@@ -8,37 +8,33 @@
 | [Karabiner](karabiner/) | Keyboard remapping | `~/.config/karabiner/karabiner.json` |
 | [Ghostty](ghostty/) | Terminal emulator | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
 | [Neovim](nvim/) | Editor (LazyVim) | `~/.config/nvim/` |
-| [Claude Code](claude/) | CLI assistant settings | `~/.claude/settings.local.json` |
+| [Claude Code](claude/) | CLI assistant settings | `~/.claude/settings.json` |
 | [tmux](tmux/) | Terminal multiplexer | `~/.tmux.conf` |
 
 ## Installation
 
-Clone and symlink:
-
 ```sh
 git clone https://github.com/Darrick-Oliver/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+./install.sh
 ```
 
-Then create symlinks for whichever configs you need:
+Or install individual modules:
 
 ```sh
-# macOS
-ln -sf $(pwd)/aerospace/aerospace.toml ~/.aerospace.toml
-ln -sf $(pwd)/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sf $(pwd)/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
-
-# Shared
-ln -sf $(pwd)/claude/settings.local.json ~/.claude/settings.local.json
-ln -sf $(pwd)/nvim ~/.config/nvim
-ln -sf $(pwd)/tmux/.tmux.conf ~/.tmux.conf
+./claude/install.sh
+./nvim/install.sh
 ```
 
-### tmux plugins
+### Claude Code
 
-Install [TPM](https://github.com/tmux-plugins/tpm), then press `prefix + I` inside tmux to install the declared plugins:
+The claude module uses a two-file merge approach:
 
-```sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
+- `claude/settings-base.json` — generic preferences and permissions (committed)
+- `~/.claude/settings-private.json` — machine-specific config (not tracked)
 
+Running `claude/install.sh` deep-merges both into `~/.claude/settings.json`. If no private file exists, it uses base only.
+
+### tmux
+
+TPM is installed automatically by `tmux/install.sh`. Press `prefix + I` inside tmux to install the declared plugins.

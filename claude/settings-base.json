@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "allow": [
       "Skill",
@@ -41,5 +44,29 @@
       "Bash(git commit*)",
       "Bash(git push*)"
     ]
+  },
+  "model": "opus",
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "theme": "dark",
+  "availableModels": [
+    "opus",
+    "sonnet"
+  ],
+  "includeCoAuthoredBy": false,
+  "statusLine": {
+    "type": "command",
+    "command": "node ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hud/omc-hud.mjs"
+  },
+  "enabledPlugins": {
+    "oh-my-claudecode@omc": true
+  },
+  "extraKnownMarketplaces": {
+    "omc": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Yeachan-Heo/oh-my-claudecode.git"
+      }
+    }
   }
 }
