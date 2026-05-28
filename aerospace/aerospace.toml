@@ -169,6 +169,10 @@ on-mode-changed = []
     ctrl-alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
     ctrl-alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    ctrl-alt-shift-h = 'workspace --wrap-around prev'
+    ctrl-alt-shift-l = 'workspace --wrap-around next'
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     ctrl-alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
