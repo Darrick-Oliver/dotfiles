@@ -11,3 +11,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   group = vim.api.nvim_create_augroup("autoread_external_changes", { clear = true }),
   command = "if mode() != 'c' | checktime | endif",
 })
+
+
+
