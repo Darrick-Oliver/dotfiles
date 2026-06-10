@@ -1,35 +1,33 @@
 # Claude Code
 
-My [Claude Code](https://claude.com/claude-code) setup. The `settings.local.json` here is symlinked to `~/.claude/settings.local.json` and holds my permission allow/deny/ask lists.
-
-## Symlink
+## Install
 
 ```sh
-ln -sf $(pwd)/claude/settings.local.json ~/.claude/settings.local.json
+./install.sh
 ```
 
-Claude Code reads `settings.local.json` once at session start, so restart the session after editing.
+This deep-merges `settings-base.json` + `~/.claude/settings-private.json` into
+`~/.claude/settings.json` and symlinks every script under `hooks/` into
+`~/.claude/hooks/`.
 
-## Tools I use alongside Claude Code
+## Prerequisites
 
-### oh-my-claudecode (OMC)
+- **`jq`** — required by every hook for parsing tool input.
+- **[`rtk`](https://github.com/rtk-ai/rtk)** — token-compression proxy. Install with:
 
-Multi-agent orchestration plugin — specialized agents, skills, and team modes.
-
-- Repo: <https://github.com/Yeachan-Heo/oh-my-claudecode>
-- Install inside Claude Code:
-  ```
-  /plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode
-  /plugin install oh-my-claudecode
-  ```
-
-### rtk (Rust Token Killer)
-
-CLI proxy that compresses command output before it hits the context window. Installs a `PreToolUse` hook that transparently rewrites Bash calls to `rtk ...`.
-
-- Repo: <https://github.com/rtk-ai/rtk>
-- After installing the binary, wire up the Claude Code hook:
   ```sh
-  rtk init --global
+  curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
   ```
-- The `Bash(rtk *)` entry in `settings.local.json` is what keeps rewritten commands from prompting.
+
+  Drops the binary at `~/.local/bin/rtk`. The `rtk-rewrite.sh` hook tracked here
+  is the same one `rtk init -g` would write — just version-controlled instead of
+  generated, so it survives reinstalls.
+
+## Layout
+
+| Path | Purpose | Tracked? |
+|------|---------|----------|
+| `settings-base.json` | Generic preferences, permissions, and the upstream rtk hook | yes |
+| `~/.claude/settings-private.json` | Machine-specific config | no |
+| `~/.claude/hooks/amazon-rtk-rewrite.sh` | Amazon-internal `brazil-build` rewriter (sister hook) | no |
+

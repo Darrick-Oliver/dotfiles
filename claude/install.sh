@@ -8,10 +8,24 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASE="$SCRIPT_DIR/settings-base.json"
 PRIVATE="$HOME/.claude/settings-private.json"
 TARGET="$HOME/.claude/settings.json"
+HOOKS_SRC="$SCRIPT_DIR/hooks"
+HOOKS_DEST="$HOME/.claude/hooks"
 
 if [[ ! -f "$BASE" ]]; then
   echo "Error: $BASE not found" >&2
   exit 1
+fi
+
+# Symlink hook scripts into ~/.claude/hooks (preserves any existing files
+# not tracked here).
+if [[ -d "$HOOKS_SRC" ]]; then
+  mkdir -p "$HOOKS_DEST"
+  for hook in "$HOOKS_SRC"/*.sh; do
+    [[ -f "$hook" ]] || continue
+    name="$(basename "$hook")"
+    ln -sfn "$hook" "$HOOKS_DEST/$name"
+  done
+  echo "Hooks symlinked into $HOOKS_DEST"
 fi
 
 if [[ ! -f "$PRIVATE" ]]; then
